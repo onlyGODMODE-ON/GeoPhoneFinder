@@ -1,0 +1,32 @@
+# PostgreSQL for local development / staging:  docker compose up -d db
+# Then:  DATABASE_URL=postgres://phonefinder:phonefinder@localhost:5432/phonefinder npm run dev
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: phonefinder
+      POSTGRES_PASSWORD: phonefinder
+      POSTGRES_DB: phonefinder
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U phonefinder"]
+      interval: 5s
+      retries: 10
+
+  # Full stack in one container (builds the frontend, serves it from the API). Not run during development
+  # of this repo — treat it as a starting point:  docker compose --profile app up --build
+  app:
+    profiles: ["app"]
+    build: .
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      DATABASE_URL: postgres://phonefinder:phonefinder@db:5432/phonefinder
+      NODE_ENV: production
+      SITE_URL: http://localhost:3001
+      ADAPTER_MODE: demo
+    ports: ["3001:3001"]
+
+volumes:
+  pgdata:

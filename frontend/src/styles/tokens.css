@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1017;
+  --bg-raised: #131824;
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --text: #eaeef7;
+  --text-dim: #a9b2c5;
+  --text-faint: #8791a7;
+  --blue: #6c98ff;
+  --blue-strong: #3f6cf2;
+  --violet: #9377ff;
+  --violet-strong: #6f4ff0;
+  --ok: #58d68d;
+  --warn: #f5b942;
+  --danger: #ff7b7b;
+  --grad: linear-gradient(135deg, var(--blue-strong), var(--violet-strong));
+  --grad-text: linear-gradient(120deg, #8db1ff, #b39cff);
+  --r-s: 8px;
+  --r-m: 14px;
+  --r-l: 22px;
+  --font-display: 'Sora', 'Noto Sans Georgian', system-ui, sans-serif;
+  --font-body: 'DM Sans', 'Noto Sans Georgian', system-ui, sans-serif;
+  --shadow: 0 18px 50px -24px rgba(0, 0, 0, 0.7);
+  --ring: 0 0 0 3px rgba(108, 152, 255, 0.55);
+}

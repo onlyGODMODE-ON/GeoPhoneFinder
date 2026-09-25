@@ -1,0 +1,24 @@
+{
+  "name": "@phonefinder/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "worker": "node src/worker.js",
+    "migrate": "node src/db/migrate-cli.js",
+    "ingest": "node src/ingestion/cli.js",
+    "test": "node --test --test-concurrency=1 --test-reporter=spec \"test/**/*.test.js\""
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.0",
+    "@fastify/cors": "^10.0.0",
+    "@fastify/helmet": "^12.0.0",
+    "@fastify/rate-limit": "^10.0.0",
+    "@fastify/static": "^8.0.0",
+    "fastify": "^5.0.0",
+    "pg": "^8.12.0"
+  }
+}

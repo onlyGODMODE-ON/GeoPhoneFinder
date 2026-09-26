@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 // In development the API runs on :3001 and Vite proxies /api to it.
 export default defineConfig({
   plugins: [react()],
+  base: '/GeoPhoneFinder/',
   server: {
     port: 5173,
     proxy: { '/api': { target: process.env.VITE_API_TARGET || 'http://localhost:3001', changeOrigin: true } },
